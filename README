@@ -1,0 +1,12 @@
+GoWiki
+Written By: Serberoth
+------------------------------------------------------------
+GoWiki is a simple file based web application written in Go.
+It can display, edit, and save content entered in simple
+REST web-service fashion.  Page content is saved to the
+file system as text documents, and pages are rendered
+using the Go HTML templates package.  This application
+is a sample based off the Go Programming Language tutorial
+for writing web applications available at:
+http://golang.org/doc/articles/wiki/
+
