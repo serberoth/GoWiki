@@ -1,6 +1,7 @@
 package main
 
 import (
+  // "fmt"
   "html/template"
   "net/http"
   "regexp"
@@ -10,8 +11,9 @@ var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
 var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9][a-zA-Z0-9_]*)$")
 
 func renderTemplate(writer http.ResponseWriter, name string, page *Page) {
+  // fmt.Println("Rendering template: ", name, " with page ", page)
   err := templates.ExecuteTemplate(writer, name + ".html", page)
-  if err == nil {
+  if err != nil {
     http.Error(writer, err.Error(), http.StatusInternalServerError)
   }
 }

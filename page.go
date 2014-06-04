@@ -1,6 +1,7 @@
 package main
 
 import (
+  "fmt"
   "io/ioutil"
 )
 
@@ -12,6 +13,10 @@ type Page struct {
 func (p *Page) save() error {
   filename := p.Title + ".txt"
   return ioutil.WriteFile(filename, p.Body, 0600)
+}
+
+func (p *Page) String() string {
+  return fmt.Sprintf("%s => %s", p.Title, string(p.Body))
 }
 
 func loadPage(title string) (*Page, error) {
